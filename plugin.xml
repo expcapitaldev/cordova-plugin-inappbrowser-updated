@@ -26,7 +26,7 @@
     <description>Cordova InAppBrowser Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova,in,app,browser,inappbrowser</keywords>
-    <repo>https://github.com/expcapitaldev/cordova-plugin-inappbrowser-updated</repo>
+    <repo>https://github.com/expcapitaldev/cordova-plugin-inappbrowser-updated.git</repo>
     <issue>https://github.com/expcapitaldev/cordova-plugin-inappbrowser-updated/issues</issue>
 
     <engines>
