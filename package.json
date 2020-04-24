@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/apache/cordova-plugin-inappbrowser"
+    "url": "https://github.com/expcapitaldev/cordova-plugin-inappbrowser-updated"
   },
   "bugs": {
-    "url": "https://github.com/apache/cordova-plugin-inappbrowser/issues"
+    "url": "https://github.com/expcapitaldev/cordova-plugin-inappbrowser-updated/issues"
   },
   "keywords": [
     "cordova",
