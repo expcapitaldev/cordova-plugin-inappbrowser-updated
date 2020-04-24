@@ -3,16 +3,6 @@
   "version": "3.2.1",
   "description": "Cordova InAppBrowser Plugin",
   "types": "./types/index.d.ts",
-  "cordova": {
-    "id": "cordova-plugin-inappbrowser",
-    "platforms": [
-      "android",
-      "browser",
-      "ios",
-      "osx",
-      "windows"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/expcapitaldev/cordova-plugin-inappbrowser-updated"
