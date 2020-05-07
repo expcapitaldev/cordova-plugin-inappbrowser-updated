@@ -35,7 +35,7 @@
 
 #define    IAB_BRIDGE_NAME @"cordova_iab"
 
-#define    TOOLBAR_HEIGHT 44.0 // 48 from styles https://app.asana.com/0/812993362141800/1168634759551193
+#define    TOOLBAR_HEIGHT 48.0
 
 #define    LOCATIONBAR_HEIGHT 21.0
 #define    FOOTER_HEIGHT ((TOOLBAR_HEIGHT) + (LOCATIONBAR_HEIGHT))
