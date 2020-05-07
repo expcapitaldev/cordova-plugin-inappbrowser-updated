@@ -101,6 +101,31 @@
 	    <header-file src="src/ios/CDVWKInAppBrowserUIDelegate.h" />
 	    <source-file src="src/ios/CDVWKInAppBrowserUIDelegate.m" />
 
+        <resource-file src="src/ios/res/ic_action_close_gold.png" />
+        <resource-file src="src/ios/res/ic_action_close_gold@2x.png" />
+        <resource-file src="src/ios/res/ic_action_close_gold@3x.png" />
+
+        <resource-file src="src/ios/res/ic_action_close_white.png" />
+        <resource-file src="src/ios/res/ic_action_close_white@2x.png" />
+        <resource-file src="src/ios/res/ic_action_close_white@3x.png" />
+
+        <resource-file src="src/ios/res/ic_action_next_gold.png" />
+        <resource-file src="src/ios/res/ic_action_next_gold@2x.png" />
+        <resource-file src="src/ios/res/ic_action_next_gold@3x.png" />
+
+        <resource-file src="src/ios/res/ic_action_next_white.png" />
+        <resource-file src="src/ios/res/ic_action_next_white@2x.png" />
+        <resource-file src="src/ios/res/ic_action_next_white@3x.png" />
+
+        <resource-file src="src/ios/res/ic_action_previous_gold.png" />
+        <resource-file src="src/ios/res/ic_action_previous_gold@2x.png" />
+        <resource-file src="src/ios/res/ic_action_previous_gold@3x.png" />
+
+        <resource-file src="src/ios/res/ic_action_previous_white.png" />
+        <resource-file src="src/ios/res/ic_action_previous_white@2x.png" />
+        <resource-file src="src/ios/res/ic_action_previous_white@3x.png" />
+
+
 	    <framework src="CoreGraphics.framework" />
     </platform>
 

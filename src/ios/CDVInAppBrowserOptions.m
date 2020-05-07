@@ -28,6 +28,8 @@
         self.usewkwebview = NO;
         self.location = YES;
         self.toolbar = YES;
+        self.titlecolor = nil;
+        self.iconbuttoncolor = @"gold";
         self.closebuttoncaption = nil;
         self.toolbarposition = @"bottom";
         self.cleardata = NO;
@@ -86,8 +88,11 @@
             }
         }
     }
-
     return obj;
+}
+
+- (BOOL)toolbarIsBottomPosition {
+    return [self.toolbarposition isEqualToString:@"bottom"];
 }
 
 @end
