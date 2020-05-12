@@ -1102,6 +1102,7 @@ BOOL isExiting = FALSE;
     self.addressLabel.text = NSLocalizedString(@"Loading...", nil);
     self.backButton.enabled = theWebView.canGoBack;
     self.forwardButton.enabled = theWebView.canGoForward;
+    [self updateVisibilityButtons];
 
     NSLog(_browserOptions.hidespinner ? @"Yes" : @"No");
     if(!_browserOptions.hidespinner) {
@@ -1132,6 +1133,7 @@ BOOL isExiting = FALSE;
     self.addressLabel.text = [self.currentURL absoluteString];
     self.backButton.enabled = theWebView.canGoBack;
     self.forwardButton.enabled = theWebView.canGoForward;
+    [self updateVisibilityButtons];
     theWebView.scrollView.contentInset = UIEdgeInsetsZero;
 
  	[self.spinner stopAnimating];
@@ -1168,6 +1170,7 @@ BOOL isExiting = FALSE;
     
     self.backButton.enabled = theWebView.canGoBack;
     self.forwardButton.enabled = theWebView.canGoForward;
+    [self updateVisibilityButtons];
     [self.spinner stopAnimating];
     
     self.addressLabel.text = NSLocalizedString(@"Load Error", nil);
@@ -1240,6 +1243,21 @@ BOOL isExiting = FALSE;
     }
     [button setImage:iconImage forState:UIControlStateNormal];
     return button;
+}
+
+- (void)updateVisibilityButtons {
+
+	if (self.backButton.enabled) {
+		self.backButton.alpha = 1;
+	} else {
+		self.backButton.alpha = .2;
+	}
+
+	if (self.forwardButton.enabled) {
+		self.forwardButton.alpha = 1;
+	} else {
+		self.forwardButton.alpha = .2;
+	}
 }
 
 @end //CDVWKInAppBrowserViewController
