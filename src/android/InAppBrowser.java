@@ -1368,7 +1368,10 @@ public class InAppBrowser extends CordovaPlugin {
                 }
             }
 
-            if (url.startsWith(WebView.SCHEME_TEL)) {
+            if (url.endsWith(".pdf")) {
+				openExternal(url);
+				override = true;
+			} else if (url.startsWith(WebView.SCHEME_TEL)) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_DIAL);
                     intent.setData(Uri.parse(url));

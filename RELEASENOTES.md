@@ -20,6 +20,14 @@
 -->
 # Release Notes
 
+### 3.2.2 (May 28, 2020)
+
+- feature: android: possible to open PDF files inside browser
+
+### 3.2.1 (May 12, 2020)
+
+- feature: custom styles added for android and ios
+
 ### 3.2.0 (Jan 04, 2020)
 * [GH-503](https://github.com/apache/cordova-plugin-inappbrowser/pull/503) Defensive code to prevent NULL reference exceptions for async
 * [GH-584](https://github.com/apache/cordova-plugin-inappbrowser/pull/584) Add compile-time decision for disabling UIWebView
