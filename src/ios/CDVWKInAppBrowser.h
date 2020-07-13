@@ -63,6 +63,7 @@
 @property (nonatomic, strong) UIView* addressContainerView;
 @property (nonatomic, strong) UILabel* addressLabel;
 @property (nonatomic, strong) UIButton* closeButton;
+@property (nonatomic, strong) UIButton* safariButton;
 @property (nonatomic, strong) UILabel* titleLabel;
 @property (nonatomic, strong) UIView* titleContainerView;
 @property (nonatomic, strong) UIButton* backButton;
@@ -77,6 +78,8 @@
 @property (nonatomic) NSURL* currentURL;
 
 - (void)close;
+- (void)openSafari;
+- (void)openInSystem:(NSURL*)url;
 - (void)navigateTo:(NSURL*)url;
 - (void)showLocationBar:(BOOL)show;
 - (void)showToolBar:(BOOL)show : (NSString *) toolbarPosition;

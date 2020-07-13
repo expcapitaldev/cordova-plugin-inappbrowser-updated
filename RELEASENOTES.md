@@ -20,6 +20,10 @@
 -->
 # Release Notes
 
+### 3.2.3 (July 13, 2020)
+
+- feat(ios): possible to open PDF files in system browser (added new button on toolbar)
+
 ### 3.2.2 (May 28, 2020)
 
 - feature: android: possible to open PDF files inside browser

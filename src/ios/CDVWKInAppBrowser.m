@@ -897,6 +897,11 @@ BOOL isExiting = FALSE;
                                              theme:_browserOptions.iconbuttoncolor];
     self.closeButton = [self defaultCloseButton];
 
+    self.safariButton = [self buttonWithImageName:@"ic_action_safari"
+											action:@selector(openSafari)
+											 color:_browserOptions.closebuttoncolor
+											 theme:_browserOptions.iconbuttoncolor];
+
     self.titleLabel = [UILabel new];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.numberOfLines = 1;
@@ -913,7 +918,7 @@ BOOL isExiting = FALSE;
     ]];
 
     // Filter out Navigation Buttons if user requests so
-    NSArray *controls = @[self.backButton, self.forwardButton, self.titleContainerView, self.closeButton];
+    NSArray *controls = @[self.backButton, self.forwardButton, self.titleContainerView, self.safariButton, self.closeButton];
     if (!_browserOptions.lefttoright) {
         controls = @[self.closeButton, self.titleContainerView, self.forwardButton, self.backButton];
     }
@@ -1045,6 +1050,12 @@ BOOL isExiting = FALSE;
     });
 }
 
+- (void)openSafari
+{
+	// NSLog(@"IAB openSafari self.webView.URL %@", self.webView.URL);
+	[self.navigationDelegate openInSystem:self.currentURL];
+}
+
 - (void)navigateTo:(NSURL*)url
 {
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
@@ -1144,6 +1155,15 @@ BOOL isExiting = FALSE;
 
 		[self.webView evaluateJavaScript:@"document.body==null" completionHandler:^(id _Nullable _isPDF, NSError * _Nullable error) {
 			if([_isPDF boolValue]){
+
+				// NSLog(@"IAB self.webView.URL %@", self.webView.URL);
+				// NSLog(@"IAB self.currentURL %@", self.currentURL);
+				// NSURL *url = self.webView.URL;
+				NSString *filename = [self.currentURL lastPathComponent];
+				// NSLog(@"IAB %@", filename);
+
+				self.titleLabel.text = filename;
+
 			   [CDVUserAgentUtil setUserAgent:_prevUserAgent lockToken:_userAgentLockToken];
 			}
 		}];
