@@ -920,7 +920,7 @@ BOOL isExiting = FALSE;
     // Filter out Navigation Buttons if user requests so
     NSArray *controls = @[self.backButton, self.forwardButton, self.titleContainerView, self.safariButton, self.closeButton];
     if (!_browserOptions.lefttoright) {
-        controls = @[self.closeButton, self.titleContainerView, self.forwardButton, self.backButton];
+        controls = @[self.closeButton, self.safariButton, self.titleContainerView, self.forwardButton, self.backButton];
     }
 
     if (_browserOptions.hidenavigationbuttons) {
