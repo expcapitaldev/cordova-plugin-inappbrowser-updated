@@ -20,6 +20,12 @@
 -->
 # Release Notes
 
+### 4.1.0-dev (Feb 09, 2021)
+
+- feat(ios): possible to open in system browser (added new button on toolbar)
+- feature(android): possible to open PDF files inside browser
+- feature: custom styles added for android and ios
+
 ### 4.1.0 (Nov 17, 2020)
 * [GH-792](https://github.com/apache/cordova-plugin-inappbrowser/pull/792) fix(android): Add mitigation strategy for CVE-2020-6506
 * [GH-817](https://github.com/apache/cordova-plugin-inappbrowser/pull/817) Updated typings
