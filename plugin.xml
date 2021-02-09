@@ -19,15 +19,15 @@
 -->
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-           id="cordova-plugin-inappbrowser"
-      version="4.1.0">
+           id="cordova-plugin-inappbrowser-updated"
+      version="4.1.0-dev">
 
     <name>InAppBrowser</name>
     <description>Cordova InAppBrowser Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova,in,app,browser,inappbrowser</keywords>
-    <repo>https://github.com/apache/cordova-plugin-inappbrowser</repo>
-    <issue>https://github.com/apache/cordova-plugin-inappbrowser/issues</issue>
+    <repo>https://github.com/expcapitaldev/cordova-plugin-inappbrowser-updated</repo>
+    <issue>https://github.com/expcapitaldev/cordova-plugin-inappbrowser-updated/issues</issue>
 
     <engines>
       <engine name="cordova" version=">=3.1.0" /><!-- Needs cordova/urlutil -->
@@ -50,20 +50,38 @@
         <source-file src="src/android/InAppChromeClient.java" target-dir="src/org/apache/cordova/inappbrowser" />
 
         <!-- drawable src/android/resources -->
-        <resource-file src="src/android/res/drawable-hdpi/ic_action_next_item.png" target="res/drawable-hdpi/ic_action_next_item.png" />
-        <resource-file src="src/android/res/drawable-mdpi/ic_action_next_item.png" target="res/drawable-mdpi/ic_action_next_item.png" />
-        <resource-file src="src/android/res/drawable-xhdpi/ic_action_next_item.png" target="res/drawable-xhdpi/ic_action_next_item.png" />
-        <resource-file src="src/android/res/drawable-xxhdpi/ic_action_next_item.png" target="res/drawable-xxhdpi/ic_action_next_item.png" />
+		<!-- gold icons -->
+		<resource-file src="src/android/res/drawable-hdpi/ic_action_next_item_gold.png" target="res/drawable-hdpi/ic_action_next_item_gold.png" />
+		<resource-file src="src/android/res/drawable-mdpi/ic_action_next_item_gold.png" target="res/drawable-mdpi/ic_action_next_item_gold.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ic_action_next_item_gold.png" target="res/drawable-xhdpi/ic_action_next_item_gold.png" />
+		<resource-file src="src/android/res/drawable-xxhdpi/ic_action_next_item_gold.png" target="res/drawable-xxhdpi/ic_action_next_item_gold.png" />
 
-        <resource-file src="src/android/res/drawable-hdpi/ic_action_previous_item.png" target="res/drawable-hdpi/ic_action_previous_item.png" />
-        <resource-file src="src/android/res/drawable-mdpi/ic_action_previous_item.png" target="res/drawable-mdpi/ic_action_previous_item.png" />
-        <resource-file src="src/android/res/drawable-xhdpi/ic_action_previous_item.png" target="res/drawable-xhdpi/ic_action_previous_item.png" />
-        <resource-file src="src/android/res/drawable-xxhdpi/ic_action_previous_item.png" target="res/drawable-xxhdpi/ic_action_previous_item.png" />
+		<resource-file src="src/android/res/drawable-hdpi/ic_action_previous_item_gold.png" target="res/drawable-hdpi/ic_action_previous_item_gold.png" />
+		<resource-file src="src/android/res/drawable-mdpi/ic_action_previous_item_gold.png" target="res/drawable-mdpi/ic_action_previous_item_gold.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ic_action_previous_item_gold.png" target="res/drawable-xhdpi/ic_action_previous_item_gold.png" />
+		<resource-file src="src/android/res/drawable-xxhdpi/ic_action_previous_item_gold.png" target="res/drawable-xxhdpi/ic_action_previous_item_gold.png" />
 
-        <resource-file src="src/android/res/drawable-hdpi/ic_action_remove.png" target="res/drawable-hdpi/ic_action_remove.png" />
-        <resource-file src="src/android/res/drawable-mdpi/ic_action_remove.png" target="res/drawable-mdpi/ic_action_remove.png" />
-        <resource-file src="src/android/res/drawable-xhdpi/ic_action_remove.png" target="res/drawable-xhdpi/ic_action_remove.png" />
-        <resource-file src="src/android/res/drawable-xxhdpi/ic_action_remove.png" target="res/drawable-xxhdpi/ic_action_remove.png" />
+		<resource-file src="src/android/res/drawable-hdpi/ic_action_remove_gold.png" target="res/drawable-hdpi/ic_action_remove_gold.png" />
+		<resource-file src="src/android/res/drawable-mdpi/ic_action_remove_gold.png" target="res/drawable-mdpi/ic_action_remove_gold.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ic_action_remove_gold.png" target="res/drawable-xhdpi/ic_action_remove_gold.png" />
+		<resource-file src="src/android/res/drawable-xxhdpi/ic_action_remove_gold.png" target="res/drawable-xxhdpi/ic_action_remove_gold.png" />
+
+		<!-- white icons -->
+		<resource-file src="src/android/res/drawable-hdpi/ic_action_next_item_white.png" target="res/drawable-hdpi/ic_action_next_item_white.png" />
+		<resource-file src="src/android/res/drawable-mdpi/ic_action_next_item_white.png" target="res/drawable-mdpi/ic_action_next_item_white.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ic_action_next_item_white.png" target="res/drawable-xhdpi/ic_action_next_item_white.png" />
+		<resource-file src="src/android/res/drawable-xxhdpi/ic_action_next_item_white.png" target="res/drawable-xxhdpi/ic_action_next_item_white.png" />
+
+		<resource-file src="src/android/res/drawable-hdpi/ic_action_previous_item_white.png" target="res/drawable-hdpi/ic_action_previous_item_white.png" />
+		<resource-file src="src/android/res/drawable-mdpi/ic_action_previous_item_white.png" target="res/drawable-mdpi/ic_action_previous_item_white.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ic_action_previous_item_white.png" target="res/drawable-xhdpi/ic_action_previous_item_white.png" />
+		<resource-file src="src/android/res/drawable-xxhdpi/ic_action_previous_item_white.png" target="res/drawable-xxhdpi/ic_action_previous_item_white.png" />
+
+		<resource-file src="src/android/res/drawable-hdpi/ic_action_remove_white.png" target="res/drawable-hdpi/ic_action_remove_white.png" />
+		<resource-file src="src/android/res/drawable-mdpi/ic_action_remove_white.png" target="res/drawable-mdpi/ic_action_remove_white.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ic_action_remove_white.png" target="res/drawable-xhdpi/ic_action_remove_white.png" />
+		<resource-file src="src/android/res/drawable-xxhdpi/ic_action_remove_white.png" target="res/drawable-xxhdpi/ic_action_remove_white.png" />
+
 
     </platform>
 
@@ -86,6 +104,38 @@
 	    <source-file src="src/ios/CDVWKInAppBrowser.m" />
 	    <header-file src="src/ios/CDVWKInAppBrowserUIDelegate.h" />
 	    <source-file src="src/ios/CDVWKInAppBrowserUIDelegate.m" />
+
+		<resource-file src="src/ios/res/ic_action_close_gold.png" />
+		<resource-file src="src/ios/res/ic_action_close_gold@2x.png" />
+		<resource-file src="src/ios/res/ic_action_close_gold@3x.png" />
+
+		<resource-file src="src/ios/res/ic_action_close_white.png" />
+		<resource-file src="src/ios/res/ic_action_close_white@2x.png" />
+		<resource-file src="src/ios/res/ic_action_close_white@3x.png" />
+
+		<resource-file src="src/ios/res/ic_action_next_gold.png" />
+		<resource-file src="src/ios/res/ic_action_next_gold@2x.png" />
+		<resource-file src="src/ios/res/ic_action_next_gold@3x.png" />
+
+		<resource-file src="src/ios/res/ic_action_next_white.png" />
+		<resource-file src="src/ios/res/ic_action_next_white@2x.png" />
+		<resource-file src="src/ios/res/ic_action_next_white@3x.png" />
+
+		<resource-file src="src/ios/res/ic_action_previous_gold.png" />
+		<resource-file src="src/ios/res/ic_action_previous_gold@2x.png" />
+		<resource-file src="src/ios/res/ic_action_previous_gold@3x.png" />
+
+		<resource-file src="src/ios/res/ic_action_previous_white.png" />
+		<resource-file src="src/ios/res/ic_action_previous_white@2x.png" />
+		<resource-file src="src/ios/res/ic_action_previous_white@3x.png" />
+
+		<resource-file src="src/ios/res/ic_action_safari_white.png" />
+		<resource-file src="src/ios/res/ic_action_safari_white@2x.png" />
+		<resource-file src="src/ios/res/ic_action_safari_white@3x.png" />
+
+		<resource-file src="src/ios/res/ic_action_safari_gold.png" />
+		<resource-file src="src/ios/res/ic_action_safari_gold@2x.png" />
+		<resource-file src="src/ios/res/ic_action_safari_gold@3x.png" />
 
 	    <framework src="CoreGraphics.framework" />
     </platform>

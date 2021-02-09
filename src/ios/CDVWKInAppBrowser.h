@@ -55,21 +55,29 @@
     NSDictionary *_settings;
 }
 
-@property (nonatomic, strong) IBOutlet WKWebView* webView;
-@property (nonatomic, strong) IBOutlet WKWebViewConfiguration* configuration;
-@property (nonatomic, strong) IBOutlet UIBarButtonItem* closeButton;
-@property (nonatomic, strong) IBOutlet UILabel* addressLabel;
-@property (nonatomic, strong) IBOutlet UIBarButtonItem* backButton;
-@property (nonatomic, strong) IBOutlet UIBarButtonItem* forwardButton;
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView* spinner;
-@property (nonatomic, strong) IBOutlet UIToolbar* toolbar;
-@property (nonatomic, strong) IBOutlet CDVWKInAppBrowserUIDelegate* webViewUIDelegate;
+@property (nonatomic, strong) WKWebView* webView;
+@property (nonatomic, strong) WKWebViewConfiguration* configuration;
+@property (nonatomic, strong) UIStackView* mainStackView;
+@property (nonatomic, strong) UIView* addressContainerView;
+@property (nonatomic, strong) UILabel* addressLabel;
+@property (nonatomic, strong) UIButton* closeButton;
+@property (nonatomic, strong) UIButton* safariButton;
+@property (nonatomic, strong) UILabel* titleLabel;
+@property (nonatomic, strong) UIView* titleContainerView;
+@property (nonatomic, strong) UIButton* backButton;
+@property (nonatomic, strong) UIButton* forwardButton;
+@property (nonatomic, strong) UIStackView* controlsStackView;
+@property (nonatomic, strong) UIView* toolbarContainerView;
+@property (nonatomic, strong) UIActivityIndicatorView* spinner;
+@property (nonatomic, strong) CDVWKInAppBrowserUIDelegate* webViewUIDelegate;
 
 @property (nonatomic, weak) id <CDVScreenOrientationDelegate> orientationDelegate;
 @property (nonatomic, weak) CDVWKInAppBrowser* navigationDelegate;
 @property (nonatomic) NSURL* currentURL;
 
 - (void)close;
+- (void)openSafari;
+- (void)openInSystem:(NSURL*)url;
 - (void)navigateTo:(NSURL*)url;
 - (void)showLocationBar:(BOOL)show;
 - (void)showToolBar:(BOOL)show : (NSString *) toolbarPosition;
