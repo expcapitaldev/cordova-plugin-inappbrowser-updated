@@ -7,7 +7,9 @@
 // Licensed under the MIT license.
 // TypeScript Version: 2.3
 
-// Send externalapp event when browser try to open external app by intent/custom scheme/geo/SCHEME_MAILTO/market
+/**
+ * Send externalapp event when browser try to open external app by intent/custom scheme/geo/SCHEME_MAILTO/market
+ */
 type channel = "loadstart" | "loadstop" | "loaderror" | "exit" | "message" | "externalapp";
 
 /**
