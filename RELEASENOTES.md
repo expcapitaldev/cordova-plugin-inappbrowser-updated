@@ -20,6 +20,10 @@
 -->
 # Release Notes
 
+### 5.0.0-dev (Feb 07, 2022)
+
+- feat(android): ability to handle intent/custom scheme links; customscheme event removed; externalapp event added, will be triggered for all attempts to open external app by intent/custom scheme/market
+
 ### 5.0.0 (Feb 10, 2021)
 * [GH-828](https://github.com/apache/cordova-plugin-inappbrowser/pull/828) feat(ios): add `InAppBrowser`StatusBarStyle 'darkcontent' configuration option
 * [GH-823](https://github.com/apache/cordova-plugin-inappbrowser/pull/823) chore: bump engines requirements

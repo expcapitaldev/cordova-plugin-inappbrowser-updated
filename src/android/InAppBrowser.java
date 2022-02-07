@@ -120,6 +120,7 @@ public class InAppBrowser extends CordovaPlugin {
     private static final String FOOTER_COLOR = "footercolor";
     private static final String BEFORELOAD = "beforeload";
     private static final String FULLSCREEN = "fullscreen";
+    private static final String EXTERNAl_APP_EVENT = "externalapp";
 
     private static final List customizableOptions = Arrays.asList(CLOSE_BUTTON_CAPTION, TOOLBAR_COLOR, NAVIGATION_COLOR, CLOSE_BUTTON_COLOR, FOOTER_COLOR, TITLE_COLOR, ICON_BUTTON_COLOR);
 
@@ -1322,17 +1323,7 @@ public class InAppBrowser extends CordovaPlugin {
                 } catch (android.content.ActivityNotFoundException e) {
                     LOG.e(LOG_TAG, "Error dialing " + url + ": " + e.toString());
                 }
-            } else if (url.startsWith("geo:") || url.startsWith(WebView.SCHEME_MAILTO) || url.startsWith("market:") || url.startsWith("intent:")) {
-                try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(url));
-                    cordova.getActivity().startActivity(intent);
-                    override = true;
-                } catch (android.content.ActivityNotFoundException e) {
-                    LOG.e(LOG_TAG, "Error with " + url + ": " + e.toString());
-                }
-            }
-            // If sms:5551212?body=This is the message
+			} // If sms:5551212?body=This is the message
             else if (url.startsWith("sms:")) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -1363,29 +1354,78 @@ public class InAppBrowser extends CordovaPlugin {
                     LOG.e(LOG_TAG, "Error sending sms " + url + ":" + e.toString());
                 }
             }
-            // Test for whitelisted custom scheme names like mycoolapp:// or twitteroauthresponse:// (Twitter Oauth Response)
-            else if (!url.startsWith("http:") && !url.startsWith("https:") && url.matches("^[A-Za-z0-9+.-]*://.*?$")) {
-                if (allowedSchemes == null) {
-                    String allowed = preferences.getString("AllowedSchemes", null);
-                    if(allowed != null) {
-                        allowedSchemes = allowed.split(",");
-                    }
+
+            else if (url.startsWith("geo:") || url.startsWith(WebView.SCHEME_MAILTO) || url.startsWith("market:")) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(url));
+                    cordova.getActivity().startActivity(intent);
+                    override = true;
+                    sendExternalAppEvent(url);
+                } catch (android.content.ActivityNotFoundException e) {
+                    LOG.e(LOG_TAG, "Error with " + url + ": " + e.toString());
                 }
-                if (allowedSchemes != null) {
-                    for (String scheme : allowedSchemes) {
-                        if (url.startsWith(scheme)) {
-                            try {
-                                JSONObject obj = new JSONObject();
-                                obj.put("type", "customscheme");
-                                obj.put("url", url);
-                                sendUpdate(obj, true);
-                                override = true;
-                            } catch (JSONException ex) {
-                                LOG.e(LOG_TAG, "Custom Scheme URI passed in has caused a JSON error.");
-                            }
+            }
+
+            else if (url.startsWith("intent:")) {
+
+                PackageManager packageManager = cordova.getActivity().getPackageManager();
+
+                try {
+
+                    // Try to find an installed app
+                    Intent intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
+                    // Try to open the fallback URL
+                    String fallbackUrl = intent.getStringExtra("browser_fallback_url");
+
+                    if (intent.resolveActivity(packageManager) != null) {
+                        cordova.getActivity().startActivity(intent);
+                        override = true;
+
+                        // Try to open the fallback URL
+                    } else if (fallbackUrl != null) {
+                        inAppWebView.loadUrl(fallbackUrl);
+                        override = true;
+
+                        // Head to the Play Store and look for an app.
+                    } else if (intent.getPackage() != null) {
+                        Intent marketIntent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("market://details?id=" + intent.getPackage()));
+                        if (marketIntent.resolveActivity(packageManager) != null) {
+                            cordova.getActivity().startActivity(marketIntent);
+                            override = true;
                         }
                     }
+
+                    sendExternalAppEvent(url);
+
+                } catch (Exception e) {
+                    LOG.e(LOG_TAG, "Error Intent with " + url + ": " + e.toString());
                 }
+            }
+
+            // Test for whitelisted custom scheme names like mycoolapp:// or twitteroauthresponse:// (Twitter Oauth Response)
+            else if (!url.startsWith("http:") && !url.startsWith("https:") && url.matches("^[A-Za-z0-9+.-]*://.*?$")) {
+
+                PackageManager packageManager = cordova.getActivity().getPackageManager();
+
+                try {
+
+                    // try to open activity if app installed or ignore
+                    Intent intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
+                    if (intent.resolveActivity(packageManager) != null) {
+                        cordova.getActivity().startActivity(intent);
+                        override = true;
+                    } else {
+                        // need to prevent because we do not want to show error into browser,
+                        // skip, used need to install app and try again, because some apps has good flow for that case
+                        override = true;
+                    }
+                    sendExternalAppEvent(url);
+
+                } catch (Exception e) {
+                    LOG.e(LOG_TAG, "Error customscheme with " + url + ": " + e.toString());
+                }
+
             }
 
             if (useBeforeload) {
@@ -1393,6 +1433,21 @@ public class InAppBrowser extends CordovaPlugin {
             }
             return override;
         }
+
+
+		/**
+		 * Send externalapp event when browser try to open external app by intent/custom scheme/geo/SCHEME_MAILTO/market
+		 */
+		private void sendExternalAppEvent(String url) {
+			try {
+				JSONObject obj = new JSONObject();
+				obj.put("type", EXTERNAl_APP_EVENT);
+				obj.put("url", url);
+				sendUpdate(obj, true);
+			} catch (JSONException ex) {
+				LOG.e(LOG_TAG, "sendExternalAppEvent JSON error.");
+			}
+		}
 
         private boolean sendBeforeLoad(String url, String method) {
             try {

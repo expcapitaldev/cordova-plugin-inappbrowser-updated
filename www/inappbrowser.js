@@ -32,7 +32,7 @@
             loadstop: channel.create('loadstop'),
             loaderror: channel.create('loaderror'),
             exit: channel.create('exit'),
-            customscheme: channel.create('customscheme'),
+            externalapp: channel.create('externalapp'),
             message: channel.create('message')
         };
     }
