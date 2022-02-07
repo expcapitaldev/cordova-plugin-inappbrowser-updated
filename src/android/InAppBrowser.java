@@ -1394,6 +1394,10 @@ public class InAppBrowser extends CordovaPlugin {
                             cordova.getActivity().startActivity(marketIntent);
                             override = true;
                         }
+                    } else {
+                        // need to prevent because we do not want to show error into browser,
+                        // skip, used need to install app and try again, because some apps has good flow for that case
+                    	override = true;
                     }
 
                     sendExternalAppEvent(url);
