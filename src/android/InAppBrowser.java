@@ -527,7 +527,8 @@ public class InAppBrowser extends CordovaPlugin {
             }
             intent.putExtra(Browser.EXTRA_APPLICATION_ID, cordova.getActivity().getPackageName());
             // CB-10795: Avoid circular loops by preventing it from opening in the current app
-            this.openExternalExcludeCurrentApp(intent);
+//             this.openExternalExcludeCurrentApp(intent);
+			this.cordova.getActivity().startActivity(Intent.createChooser(intent, null));
             return "";
             // not catching FileUriExposedException explicitly because buildtools<24 doesn't know about it
         } catch (java.lang.RuntimeException e) {
@@ -540,7 +541,7 @@ public class InAppBrowser extends CordovaPlugin {
      * Opens the intent, providing a chooser that excludes the current app to avoid
      * circular loops.
      */
-    private void openExternalExcludeCurrentApp(Intent intent) {
+    /* private void openExternalExcludeCurrentApp(Intent intent) {
         String currentPackage = cordova.getActivity().getPackageName();
         boolean hasCurrentPackage = false;
 
@@ -574,7 +575,7 @@ public class InAppBrowser extends CordovaPlugin {
             chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetIntents.toArray(new Parcelable[] {}));
             this.cordova.getActivity().startActivity(chooser);
         }
-    }
+    } */
 
     /**
      * Closes the dialog

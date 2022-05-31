@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-inappbrowser-updated",
-  "version": "5.0.0-dev",
+  "version": "5.0.0-dev-1.1",
   "description": "Cordova InAppBrowser Plugin",
   "types": "./types/index.d.ts",
   "repository": "github:expcapitaldev/cordova-plugin-inappbrowser-updated",

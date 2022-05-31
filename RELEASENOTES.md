@@ -20,6 +20,10 @@
 -->
 # Release Notes
 
+### 5.0.0-dev-1.1 (May 31, 2022)
+
+- feat(android): openExternal refactored, chooser added
+
 ### 5.0.0-dev (Feb 07, 2022)
 
 - feat(android): ability to handle intent/custom scheme links; customscheme event removed; externalapp event added, will be triggered for all attempts to open external app by intent/custom scheme/market
